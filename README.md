@@ -82,9 +82,9 @@ After running the above commands, the Airflow Web UI will be available at [http:
 
 ---
 
-### **Code Walkthrough**
+## **Code Walkthrough**
 
-## **DAG Setup**
+# **DAG Setup**
 
 ```python
 default_args = {
@@ -107,9 +107,9 @@ dag = DAG(
 - `default_args`: Specifies parameters for task retries, failure notifications, and owner information.
 - `dag`: Creates the Airflow DAG, where the tasks are defined and scheduled.
 
-## **Task Definitions**
+# **Task Definitions**
 
-# **Downloading Data**
+**Downloading Data**
 Downloads the compressed [traffic data](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Final%20Assignment/tolldata.tgz) file from a cloud storage URL.
 ```python
 download = BashOperator(
@@ -119,7 +119,7 @@ download = BashOperator(
 )
 ```
 
-# **Unzipping the Data**
+**Unzipping the Data**
 Extracts the downloaded .tgz (tarball) file to the specified directory.
 ```python
 unzip = BashOperator(
@@ -129,7 +129,7 @@ unzip = BashOperator(
 )
 ```
 
-# **Extracting Data from CSV**
+**Extracting Data from CSV**
 Selects the first four columns of the data which are `Rowid`, `Timestamp`, `Anonymized Vehicle number` and `Vehicle type` then saves the processed data into a new CSV file.
 ```python
 def extracting_csv():
@@ -138,7 +138,7 @@ def extracting_csv():
     csv_data.to_csv(f'{address}csv_data.csv', index=False, header=False)
 ```
 
-# **Extracting Data from TSV**
+**Extracting Data from TSV**
 Selects the fifth, sixth and seventh columns of the data which are `Number of axles`, `Tollplaza id` and `Tollplaza code` then saves the processed data into a new CSV file.
 ```python
 def extracting_tsv():
@@ -147,7 +147,7 @@ def extracting_tsv():
     tsv_data.to_csv(f'{address}tsv_data.csv', index=False, header=False)
 ```
 
-# **Extracting Fixed-Width Data**
+**Extracting Fixed-Width Data**
 Selects the last two columns of the data which are `Type of Payment code` and `Vehicle Code` then saves the processed data into a new CSV file.
 ```python
 extract_txt = BashOperator(
@@ -159,7 +159,7 @@ extract_txt = BashOperator(
 )
 ```
 
-# **Consolidating Data**
+**Consolidating Data**
 Concatenates the CSV, TSV, and fixed-width data along columns (axis=1) then saves the consolidated data as a new CSV file.
 ```python
 def consolidating():
@@ -170,7 +170,7 @@ def consolidating():
     extracted_data.to_csv(f'{address}extracted_data.csv', index=False, header=False)
 ```
 
-# **Transforming Data**
+**Transforming Data**
 Converts the fourth column `vehicle_type` to uppercase then saves the transformed data as a new CSV file.
 ```python
 def transforming():
@@ -179,7 +179,7 @@ def transforming():
     extracted_data.to_csv(f'{address}transformed_data.csv', index=False, header=False)
 ```
 
-### **Airflow UI Screenshots**
+## **Airflow UI Screenshots**
 
 1. **Airflow DAG Structure**:
 ![Image](https://github.com/user-attachments/assets/d72038e9-8342-4e25-858f-85521bd658a8)
