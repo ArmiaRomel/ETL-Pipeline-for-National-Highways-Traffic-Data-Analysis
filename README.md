@@ -84,7 +84,7 @@ After running the above commands, the Airflow Web UI will be available at [http:
 
 ## **Code Walkthrough**
 
-# **DAG Setup**
+### **DAG Setup**
 
 ```python
 default_args = {
@@ -107,7 +107,7 @@ dag = DAG(
 - `default_args`: Specifies parameters for task retries, failure notifications, and owner information.
 - `dag`: Creates the Airflow DAG, where the tasks are defined and scheduled.
 
-# **Task Definitions**
+### **Task Definitions**
 
 **Downloading Data**
 Downloads the compressed [traffic data](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Final%20Assignment/tolldata.tgz) file from a cloud storage URL.
