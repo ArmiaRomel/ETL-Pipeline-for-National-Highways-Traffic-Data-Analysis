@@ -1,0 +1,2 @@
+# ETL-Pipeline-for-National-Highways-Traffic-Data-Analysis
+This project aims to de-congest the national highways by analyzing road traffic data from different toll plazas. Each highway is operated by a different toll operator with a unique IT setup, and the data is available in various file formats. The goal is to collect, consolidate, and analyze the data to provide insights into traffic patterns.
